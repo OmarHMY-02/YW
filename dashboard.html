@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - YouWork</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh; /* Ensures the body takes up the full height of the viewport */
+    }
+
+    header {
+      background: #ffffff; /* White background for the navbar */
+      color: #333; /* Dark text for the navbar */
+      border-bottom: 25px solid #007BFF; /* Blue line underneath */
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    header .logo img {
+      width: 40px;
+      margin-right: 10px;
+    }
+
+    header nav {
+      display: flex;
+      gap: 15px;
+    }
+
+    header nav a {
+      color: #333; /* Dark link color */
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    header nav a:hover {
+      text-decoration: underline;
+    }
+
+    main {
+      flex: 1; /* Pushes the footer to the bottom */
+      padding: 20px;
+    }
+
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(4, 120px); /* 4 columns, fixed width for each box */
+      gap: 10px; /* Reduced gap between boxes */
+      justify-content: start; /* Align boxes to the left */
+      padding: 20px;
+    }
+
+    .grid-item {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      width: 120px; /* Box width */
+      height: 120px; /* Box height */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .grid-item img {
+      width: 40px; /* Icon size */
+      height: 40px;
+      margin-bottom: 10px; /* Space between icon and text */
+    }
+
+    .box-label {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px; /* Space between text and arrow */
+      font-size: 12px; /* Smaller text size */
+      font-weight: bold;
+      color: #333;
+    }
+
+    .dropdown-arrow {
+      font-size: 12px; /* Arrow size */
+      color: #666;
+      cursor: pointer;
+    }
+
+    footer {
+      background: #7f7f7f;
+      padding: 10px;
+      text-align: center;
+      font-size: 14px;
+      border-top: 1px solid #ccc;
+    }
+
+    footer a {
+      color: #007BFF;
+      text-decoration: none;
+      margin: 0 5px;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="logo">
+    <img src="YW logo.jpg" alt="YouWork Logo">
+    <h1>YOUWORK.COM</h1>
+  </div>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </nav>
+</header>
+<main>
+  <h2>Welcome, James Smith</h2>
+  <div class="grid-container">
+    <div class="grid-item">
+      <img src="YW logo.jpg" alt="My To Do">
+      <div class="box-label">
+        My To Do
+        <span class="dropdown-arrow">▼</span>
+      </div>
+    </div>
+    <div class="grid-item">
+      <img src="YW logo.jpg" alt="Students">
+      <div class="box-label">
+        Students
+        <span class="dropdown-arrow">▼</span>
+      </div>
+    </div>
+    <div class="grid-item">
+      <img src="YW logo.jpg" alt="Parents">
+      <div class="box-label">
+        Parents
+        <span class="dropdown-arrow">▼</span>
+      </div>
+    </div>
+    <div class="grid-item">
+      <img src="YW logo.jpg" alt="Courses">
+      <div class="box-label">
+        Courses
+        <span class="dropdown-arrow">▼</span>
+      </div>
+    </div>
+    <div class="grid-item">
+      <img src="icon5.png" alt="Users">
+      <div class="box-label">
+        Users
+        <span class="dropdown-arrow">▼</span>
+      </div>
+    </div>
+    <div class="grid-item">
+      <img src="icon6.png" alt="Countries">
+      <div class="box-label">
+        Countries
+        <span class="dropdown-arrow">▼</span>
+      </div>
+    </div>
+    <div class="grid-item">
+      <img src="icon7.png" alt="Terms">
+      <div class="box-label">
+        Terms
+        <span class="dropdown-arrow">▼</span>
+      </div>
+    </div>
+    <div class="grid-item">
+      <img src="icon8.png" alt="XYZ">
+      <div class="box-label">
+        XYZ
+        <span class="dropdown-arrow">▼</span>
+      </div>
+    </div>
+  </div>
+</main>
+<footer>
+  <p>
+    &copy; 2020 YOUWORK.COM, Inc. All rights reserved.
+    <br>
+    Follow us on
+    <a href="#">Facebook</a> |
+    <a href="#">YouTube</a> |
+    <a href="#">Instagram</a> |
+    <a href="#">Twitter</a> |
+    <a href="#">LinkedIn</a>
+  </p>
+</footer>
+</body>
+</html>
