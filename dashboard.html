@@ -14,14 +14,92 @@
       min-height: 100vh; /* Ensures the body takes up the full height of the viewport */
     }
 
+    /* White header */
     header {
-      background: #ffffff; /* White background for the navbar */
-      color: #333; /* Dark text for the navbar */
-      border-bottom: 25px solid #007BFF; /* Blue line underneath */
+      background: #ffffff; /* White background */
+      color: #333; /* Dark text */
       padding: 10px 20px;
       display: flex;
-      justify-content: space-between;
+      justify-content: space-between; /* Align elements to opposite ends */
       align-items: center;
+      border-bottom: none; /* No border-bottom here */
+    }
+
+    .logo-and-search {
+      display: flex;
+      align-items: center;
+      gap: 20px; /* Space between logo and search bar */
+    }
+
+    .logo img {
+      width: 40px;
+      margin-right: 10px;
+    }
+
+    .search-bar {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .search-bar input {
+      padding: 8px 40px 8px 10px; /* Space for the search icon on the right */
+      border: 1px solid #ddd;
+      border-radius: 20px; /* Curved edges */
+      font-size: 14px;
+      width: 200px; /* Width of the search bar */
+      box-sizing: border-box;
+    }
+
+    .search-bar .search-icon {
+      position: absolute;
+      right: 10px; /* Position the icon at the max right */
+      width: 16px; /* Icon size */
+      height: 16px;
+    }
+
+    .contact-info {
+      display: flex;
+      align-items: center;
+      gap: 15px; /* Space between contact info items */
+      font-size: 14px;
+    }
+
+    .contact-info a {
+      color: #007BFF; /* Link color */
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .contact-info a:hover {
+      text-decoration: underline;
+    }
+
+    /* Blue navbar line underneath */
+    /* Blue navbar line underneath */
+    .blue-navbar {
+      background: #00aae8; /* Blue background */
+      height: 28px; /* Set fixed height for the navbar */
+      display: flex;
+      align-items: center; /* Vertically align content */
+      padding: 0 20px; /* Horizontal padding only */
+    }
+
+
+    .blue-navbar nav {
+      display: flex;
+      gap: 15px; /* Spacing between links */
+    }
+
+    .blue-navbar nav a {
+      color: white; /* White text for the links */
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .blue-navbar nav a:hover {
+      text-decoration: underline;
     }
 
     header .logo {
@@ -108,7 +186,7 @@
     }
 
     footer a {
-      color: #007BFF;
+      color: white;
       text-decoration: none;
       margin: 0 5px;
     }
@@ -116,20 +194,50 @@
     footer a:hover {
       text-decoration: underline;
     }
+
+    .separator {
+      color: white; /* Set the separator color to white */
+      margin: 0 5px; /* Add some spacing around the separator */
+    }
+
   </style>
 </head>
 <body>
 <header>
-  <div class="logo">
-    <img src="YW logo.jpg" alt="YouWork Logo">
-    <h1>YOUWORK.COM</h1>
+  <div class="logo-and-search">
+    <div class="logo">
+      <img src="YW%20logo.jpg" alt="YouWork Logo">
+      <h1>YOUWORK.COM</h1>
+    </div>
+    <div class="search-bar">
+      <input type="text" placeholder="Search...">
+      <img src="icon.png" alt="Search" class="search-icon">
+    </div>
   </div>
-  <nav>
-    <a href="#">Home</a>
-    <a href="#">About</a>
-    <a href="#">Contact</a>
-  </nav>
+  <div class="contact-info">
+    <span>info@YouWork.com</span> |
+    <span>+971 800 5555</span> |
+    <span>+971 52 555 5555</span> |
+    <a href="#">Live Chat</a> |
+    <a href="#">Send us a message</a>
+  </div>
 </header>
+<div class="blue-navbar">
+  <nav>
+    <a href="#">Module 1 &#x25BE;</a> <span class="separator">|</span>
+    <a href="#">Module 2 &#x25BE;</a> <span class="separator">|</span>
+    <a href="#">Module 3 &#x25BE;</a> <span class="separator">|</span>
+    <a href="#">Master Data &#x25BE;</a> <span class="separator">|</span>
+    <a href="#">Reports &#x25BE;</a> <span class="separator">|</span>
+    <a href="#">User Management &#x25BE;</a> <span class="separator">|</span>
+    <a href="#">Admin &#x25BE;</a> <span class="separator">|</span>
+    <a href="#">Technical &#x25BE;</a> <span class="separator">|</span>
+    <a href="#">Help &#x25BE;</a>
+  </nav>
+
+</div>
+
+
 <main>
   <h2>Welcome, James Smith</h2>
   <div class="grid-container">
@@ -162,28 +270,28 @@
       </div>
     </div>
     <div class="grid-item">
-      <img src="icon5.png" alt="Users">
+      <img src="YW%20logo.jpg" alt="Users">
       <div class="box-label">
         Users
         <span class="dropdown-arrow">▼</span>
       </div>
     </div>
     <div class="grid-item">
-      <img src="icon6.png" alt="Countries">
+      <img src="YW%20logo.jpg" alt="Countries">
       <div class="box-label">
         Countries
         <span class="dropdown-arrow">▼</span>
       </div>
     </div>
     <div class="grid-item">
-      <img src="icon7.png" alt="Terms">
+      <img src="YW%20logo.jpg" alt="Terms">
       <div class="box-label">
         Terms
         <span class="dropdown-arrow">▼</span>
       </div>
     </div>
     <div class="grid-item">
-      <img src="icon8.png" alt="XYZ">
+      <img src="YW%20logo.jpg" alt="XYZ">
       <div class="box-label">
         XYZ
         <span class="dropdown-arrow">▼</span>
