@@ -177,6 +177,50 @@
       cursor: pointer;
     }
 
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%; /* Position below the grid item */
+      left: 0;
+      background: #f9f9f9;
+      border: 1px solid #ddd;
+      border-radius: 30px;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+      z-index: 10;
+      padding: 10px 10px 10px 30px; /* Add left padding for icon space */
+      width: 200px; /* Width of dropdown menu */
+    }
+
+    .dropdown-menu a {
+      display: flex;
+      align-items: center;
+      padding: 5px 10px;
+      font-size: 12px;
+      color: #333;
+      text-decoration: none;
+      position: relative; /* Allow child elements to position absolutely */
+    }
+
+    .dropdown-menu a:hover {
+      background: #007BFF;
+      color: white;
+    }
+
+    .dropdown-menu a img {
+      position: absolute; /* Fix to the left */
+      left: 5px; /* Adjust left margin for icons */
+      width: 16px; /* Icon size */
+      height: 16px;
+    }
+
+    .dropdown-menu a span {
+      margin-left: 50px; /* Space between icon and text */
+    }
+
+    .dropdown-menu.active {
+      display: block;
+    }
+
     footer {
       background: #7f7f7f;
       padding: 10px;
@@ -237,7 +281,6 @@
 
 </div>
 
-
 <main>
   <h2>Welcome, James Smith</h2>
   <div class="grid-container">
@@ -245,56 +288,287 @@
       <img src="YW logo.jpg" alt="My To Do">
       <div class="box-label">
         My To Do
-        <span class="dropdown-arrow">▼</span>
+        <span class="dropdown-arrow" onclick="toggleDropdown(this)">▼</span>
       </div>
+      <div class="dropdown-menu">
+        <a href="#">
+          Create Single..
+        </a>
+        <a href="#">
+          Create Multiple..
+        </a>
+        <a href="#">
+          Import..
+        </a>
+        <a href="#">
+          Search..
+        </a>
+        <a href="#">
+          Advanced Search..
+        </a>
+        <a href="#">
+          Saved Search..
+        </a>
+        <a href="#">
+          Browse..
+        </a>
+        <a href="#">
+          List All..
+        </a>
+        <a href="#">
+          Reports..
+        </a>
+      </div>
+
     </div>
     <div class="grid-item">
       <img src="YW logo.jpg" alt="Students">
-      <div class="box-label">
-        Students
-        <span class="dropdown-arrow">▼</span>
+      <div class="box-label">Students<span class="dropdown-arrow" onclick="toggleDropdown(this)">▼</span>
+      </div>
+      <div class="dropdown-menu">
+        <a href="#">
+          Create Single..
+        </a>
+        <a href="#">
+          Create Multiple..
+        </a>
+        <a href="#">
+          Import..
+        </a>
+        <a href="#">
+          Search..
+        </a>
+        <a href="#">
+          Advanced Search..
+        </a>
+        <a href="#">
+          Saved Search..
+        </a>
+        <a href="#">
+          Browse..
+        </a>
+        <a href="#">
+          List All..
+        </a>
+        <a href="#">
+          Reports..
+        </a>
       </div>
     </div>
     <div class="grid-item">
       <img src="YW logo.jpg" alt="Parents">
       <div class="box-label">
         Parents
-        <span class="dropdown-arrow">▼</span>
+        <span class="dropdown-arrow" onclick="toggleDropdown(this)">▼</span>
+      </div>
+      <div class="dropdown-menu">
+        <a href="#">
+          Create Single..
+        </a>
+        <a href="#">
+          Create Multiple..
+        </a>
+        <a href="#">
+          Import..
+        </a>
+        <a href="#">
+          Search..
+        </a>
+        <a href="#">
+          Advanced Search..
+        </a>
+        <a href="#">
+          Saved Search..
+        </a>
+        <a href="#">
+          Browse..
+        </a>
+        <a href="#">
+          List All..
+        </a>
+        <a href="#">
+          Reports..
+        </a>
       </div>
     </div>
     <div class="grid-item">
       <img src="YW logo.jpg" alt="Courses">
       <div class="box-label">
         Courses
-        <span class="dropdown-arrow">▼</span>
+        <span class="dropdown-arrow" onclick="toggleDropdown(this)">▼</span>
+      </div>
+      <div class="dropdown-menu">
+        <a href="#">
+          Create Single..
+        </a>
+        <a href="#">
+          Create Multiple..
+        </a>
+        <a href="#">
+          Import..
+        </a>
+        <a href="#">
+          Search..
+        </a>
+        <a href="#">
+          Advanced Search..
+        </a>
+        <a href="#">
+          Saved Search..
+        </a>
+        <a href="#">
+          Browse..
+        </a>
+        <a href="#">
+          List All..
+        </a>
+        <a href="#">
+          Reports..
+        </a>
       </div>
     </div>
     <div class="grid-item">
       <img src="YW%20logo.jpg" alt="Users">
       <div class="box-label">
         Users
-        <span class="dropdown-arrow">▼</span>
+        <span class="dropdown-arrow" onclick="toggleDropdown(this)">▼</span>
+      </div>
+      <div class="dropdown-menu">
+        <a href="#">
+          Create Single..
+        </a>
+        <a href="#">
+          Create Multiple..
+        </a>
+        <a href="#">
+          Import..
+        </a>
+        <a href="#">
+          Search..
+        </a>
+        <a href="#">
+          Advanced Search..
+        </a>
+        <a href="#">
+          Saved Search..
+        </a>
+        <a href="#">
+          Browse..
+        </a>
+        <a href="#">
+          List All..
+        </a>
+        <a href="#">
+          Reports..
+        </a>
       </div>
     </div>
     <div class="grid-item">
       <img src="YW%20logo.jpg" alt="Countries">
       <div class="box-label">
         Countries
-        <span class="dropdown-arrow">▼</span>
+        <span class="dropdown-arrow" onclick="toggleDropdown(this)">▼</span>
+      </div>
+      <div class="dropdown-menu">
+        <a href="#">
+          Create Single..
+        </a>
+        <a href="#">
+          Create Multiple..
+        </a>
+        <a href="#">
+          Import..
+        </a>
+        <a href="#">
+          Search..
+        </a>
+        <a href="#">
+          Advanced Search..
+        </a>
+        <a href="#">
+          Saved Search..
+        </a>
+        <a href="#">
+          Browse..
+        </a>
+        <a href="#">
+          List All..
+        </a>
+        <a href="#">
+          Reports..
+        </a>
       </div>
     </div>
     <div class="grid-item">
       <img src="YW%20logo.jpg" alt="Terms">
       <div class="box-label">
         Terms
-        <span class="dropdown-arrow">▼</span>
+        <span class="dropdown-arrow" onclick="toggleDropdown(this)">▼</span>
+      </div>
+      <div class="dropdown-menu">
+        <a href="#">
+          Create Single..
+        </a>
+        <a href="#">
+          Create Multiple..
+        </a>
+        <a href="#">
+          Import..
+        </a>
+        <a href="#">
+          Search..
+        </a>
+        <a href="#">
+          Advanced Search..
+        </a>
+        <a href="#">
+          Saved Search..
+        </a>
+        <a href="#">
+          Browse..
+        </a>
+        <a href="#">
+          List All..
+        </a>
+        <a href="#">
+          Reports..
+        </a>
       </div>
     </div>
     <div class="grid-item">
       <img src="YW%20logo.jpg" alt="XYZ">
       <div class="box-label">
         XYZ
-        <span class="dropdown-arrow">▼</span>
+        <span class="dropdown-arrow" onclick="toggleDropdown(this)">▼</span>
+      </div>
+      <div class="dropdown-menu">
+        <a href="#">
+          Create Single..
+        </a>
+        <a href="#">
+          Create Multiple..
+        </a>
+        <a href="#">
+          Import..
+        </a>
+        <a href="#">
+          Search..
+        </a>
+        <a href="#">
+          Advanced Search..
+        </a>
+        <a href="#">
+          Saved Search..
+        </a>
+        <a href="#">
+          Browse..
+        </a>
+        <a href="#">
+          List All..
+        </a>
+        <a href="#">
+          Reports..
+        </a>
       </div>
     </div>
   </div>
@@ -311,5 +585,20 @@
     <a href="#">LinkedIn</a>
   </p>
 </footer>
+<script>
+  function toggleDropdown(element) {
+    const dropdown = element.parentElement.nextElementSibling;
+    dropdown.classList.toggle("active");
+  }
+
+  window.addEventListener("click", function (e) {
+    const dropdowns = document.querySelectorAll(".dropdown-menu");
+    dropdowns.forEach((menu) => {
+      if (!menu.contains(e.target) && !menu.previousElementSibling.contains(e.target)) {
+        menu.classList.remove("active");
+      }
+    });
+  });
+</script>
 </body>
 </html>
