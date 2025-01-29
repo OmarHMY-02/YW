@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Students - Create Single</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* Header styles */
+    header {
+      background: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .logo-and-search {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex: 1;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo img {
+      width: 40px;
+      margin-right: 10px;
+    }
+
+    .search-bar {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-bar input {
+  width: 150%;
+  padding: 8px 35px 8px 10px; /* Add right padding for the icon */
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.search-bar .search-icon {
+  position: absolute;
+  right: 10px; /* Position the icon at the far right */
+  width: 20px; /* Adjust icon size */
+  height: 20px;
+  pointer-events: none; /* Prevent icon from interfering with input clicks */
+}
+
+
+    header .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    header .logo img {
+      width: 40px;
+      margin-right: 10px;
+    }
+
+    header nav {
+      display: flex;
+      gap: 15px;
+    }
+
+    header nav a {
+      color: #333; /* Dark link color */
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    header nav a:hover {
+      text-decoration: underline;
+    }
+
+    .contact-info {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      font-size: 14px;
+    }
+
+    .contact-info a {
+      color: #007BFF;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .contact-info a:hover {
+      text-decoration: underline;
+    }
+
+    /* Navbar styles */
+    /* Blue navbar line underneath */
+    .blue-navbar {
+      background: #00aae8; /* Blue background */
+      height: 28px; /* Set fixed height for the navbar */
+      display: flex;
+      align-items: center; /* Vertically align content */
+      padding: 0 20px; /* Horizontal padding only */
+    }
+
+
+    .blue-navbar nav {
+      display: flex;
+      gap: 15px; /* Spacing between links */
+    }
+
+    .blue-navbar nav a {
+      color: white; /* White text for the links */
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .blue-navbar nav a:hover {
+      text-decoration: underline;
+    }
+
+    .separator {
+    color: white; /* Set the separator color to white */
+    margin: 0 5px; /* Add spacing around the separator */
+  }
+
+    main {
+      flex: 1;
+      padding: 20px;
+    }
+
+    .toolbar {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 10px 0;
+      margin-bottom: 20px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .toolbar a {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      font-size: 14px;
+      color: #333;
+      padding: 5px 10px;
+      border-radius: 5px;
+    }
+
+    .toolbar a:hover {
+      background: #f0f0f0;
+    }
+
+    .toolbar a.active {
+      color: #007BFF;
+      border-bottom: 2px solid #007BFF;
+    }
+
+    .toolbar img {
+      width: 16px;
+      height: 16px;
+    }
+
+    .form-container {
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px; /* Reduced padding */
+  max-width: 600px; /* Slightly narrower form */
+  margin: 10px; /* Centered form */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.form-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px; /* Reduced spacing */
+}
+
+.form-row label {
+  flex: 0 0 100px; /* Adjust label width */
+  font-size: 12px; /* Smaller font size */
+}
+
+.form-row input,
+.form-row select {
+  flex: 1;
+  padding: 5px; /* Smaller padding */
+  font-size: 12px; /* Smaller font size */
+}
+
+    .form-row input[type="radio"] {
+      flex: 0;
+      margin-right: 5px;
+    }
+
+    .form-buttons {
+  display: flex;
+  gap: 10px;
+  margin: 10px;
+}
+
+.form-buttons button {
+  padding: 8px 15px;
+  font-size: 12px;
+}
+
+    .form-buttons .btn-primary {
+      background: #007BFF;
+      color: white;
+    }
+
+    .form-buttons .btn-secondary {
+      background: #6c757d;
+      color: white;
+    }
+
+    .dropdown-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.dropdown-container input {
+  flex: 1;
+  padding: 5px; /* Reduced padding */
+  font-size: 12px;
+  border: 1px solid #ddd;
+  border-radius: 5px 0 0 5px;
+  box-sizing: border-box;
+}
+
+.dropdown-container select {
+  background: white;
+  border: 1px solid #ddd;
+  border-left: none;
+  border-radius: 0 5px 5px 0;
+  padding: 5px;
+  font-size: 12px;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.button-container {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.tab-button {
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.tab-button.active {
+  background: #007BFF;
+  color: white;
+  border-color: #007BFF;
+}
+
+.tab-button:hover {
+  background: #0056b3;
+  color: white;
+}
+
+  </style>
+</head>
+<body>
+<header>
+  <div class="logo-and-search">
+    <div class="logo">
+      <img src="YW%20logo.jpg" alt="YouWork Logo">
+      <h1>YOUWORK.COM</h1>
+    </div>
+    <div class="search-bar">
+      <input type="text" placeholder="Search...">
+      <img src="icon.png" alt="Search" class="search-icon">
+    </div>
+  </div>
+  <div class="contact-info">
+    <span>info@YouWork.com</span> |
+    <span>+971 800 5555</span> |
+    <span>+971 52 555 5555</span> |
+    <a href="#">Live Chat</a> |
+    <a href="#">Send us a message</a>
+  </div>
+</header>
+<div class="blue-navbar">
+  <nav>
+    <a href="#">Module 1 &#x25BE;</a> <span class="separator">|</span>
+    <a href="#">Module 2 &#x25BE;</a> <span class="separator">|</span>
+    <a href="#">Module 3 &#x25BE;</a> <span class="separator">|</span>
+    <a href="#">Master Data &#x25BE;</a> <span class="separator">|</span>
+    <a href="#">Reports &#x25BE;</a> <span class="separator">|</span>
+    <a href="#">User Management &#x25BE;</a> <span class="separator">|</span>
+    <a href="#">Admin &#x25BE;</a> <span class="separator">|</span>
+    <a href="#">Technical &#x25BE;</a> <span class="separator">|</span>
+    <a href="#">Help &#x25BE;</a>
+  </nav>
+</div>
+
+<main>
+  <h2>Students - Create Single</h2>
+  <div class="toolbar">
+    <a href="#" class="active"><img src="icon.png" alt="Create Single"> Create Single</a>
+    <a href="#"><img src="icon.png" alt="Create Multiple"> Create Multiple</a>
+    <a href="#"><img src="icon.png" alt="Import"> Import</a>
+    <a href="#"><img src="icon.png" alt="Search"> Search</a>
+    <a href="#"><img src="icon.png" alt="Advanced Search"> Advanced Search</a>
+    <a href="#"><img src="icon.png" alt="Saved Search"> Saved Search</a>
+    <a href="#"><img src="icon.png" alt="Browse"> Browse</a>
+    <a href="#"><img src="icon.png" alt="List All"> List All</a>
+    <a href="#"><img src="icon.png" alt="Reports"> Reports</a>
+    <a href="#"><img src="icon.png" alt="Recycle Bin"> Recycle Bin</a>
+    <a href="#"><img src="icon.png" alt="Archive"> Archive</a>
+  </div>
+  <div class="form-container">
+    <div class="button-container">
+      <button class="tab-button active">Basic Details</button>
+      <button class="tab-button">Other Details</button>
+    </div>
+    <form>
+      <div class="form-row">
+        <label for="first-name">First Name<span style="color: red;">*</span>:</label>
+        <input type="text" id="first-name" placeholder="Enter first name">
+      </div>
+      <div class="form-row">
+        <label for="last-name">Last Name<span style="color: red;">*</span>:</label>
+        <input type="text" id="last-name" placeholder="Enter last name">
+      </div>
+      <div class="form-row">
+        <label for="joining-year">Joining Year<span style="color: red;">*</span>:</label>
+        <input type="text" id="joining-year" placeholder="Enter joining year">
+      </div>
+      <div class="form-row">
+        <label for="dob">Date of Birth<span style="color: red;">*</span>:</label>
+        <input type="date" id="dob">
+      </div>
+      <div class="form-row">
+        <label for="photo">Photo<span style="color: red;">*</span>:</label>
+        <input type="file" id="photo">
+      </div>
+      <div class="form-row">
+        <label for="nationality">Nationality<span style="color: red;">*</span>:</label>
+        <input type="text" id="nat" placeholder="Enter your Nationality">
+      </div>
+      <div class="form-row">
+        <label for="country">Country<span style="color: red;">*</span>:</label>
+        <div class="dropdown-container">
+          <input type="text" id="country" placeholder="Type a country">
+          <select id="country-select" onchange="setInputValue('country', this)">
+            <option value="" disabled selected>Choose a country</option>
+            <option value="United States">United States</option>
+            <option value="Canada">Canada</option>
+            <option value="United Kingdom">United Kingdom</option>
+            <option value="Australia">Australia</option>
+            <option value="Germany">Germany</option>
+            <option value="France">France</option>
+          </select>
+        </div>
+      </div>
+      
+      <div class="form-row">
+        <label for="city">City<span style="color: red;">*</span>:</label>
+        <div class="dropdown-container">
+          <input type="text" id="city" placeholder="Type a city">
+          <select id="city-select" onchange="setInputValue('city', this)">
+            <option value="" disabled selected>Choose a city</option>
+            <option value="New York">New York</option>
+            <option value="Los Angeles">Los Angeles</option>
+            <option value="Chicago">Chicago</option>
+            <option value="Houston">Houston</option>
+            <option value="Phoenix">Phoenix</option>
+            <option value="Toronto">Toronto</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <label for="gender">Gender:</label>
+        <input type="radio" id="male" name="gender" value="Male"> Male
+        <input type="radio" id="female" name="gender" value="Female"> Female
+      </div>
+
+      <div class="form-row">
+        <label for="received-email">Received Email?</label>
+        <input type="checkbox" id="received-email">
+</div>
+
+      <div class="form-buttons">
+        <button type="submit" class="btn-primary">Create</button>
+        <button type="button" class="btn-secondary">Read from Attachment</button>
+      </div>
+      
+    </form>
+  </div>
+</main>
+<script>
+function setInputValue(inputId, selectElement) {
+  const inputField = document.getElementById(inputId);
+  inputField.value = selectElement.value;
+}
+</script>
+</body>
+</html>
