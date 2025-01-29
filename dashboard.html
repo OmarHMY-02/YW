@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dashboard - YouWork</title>
   <style>
@@ -37,26 +38,27 @@
     }
 
     .search-bar {
-      position: relative;
-      display: flex;
-      align-items: center;
-    }
+  position: relative;
+  display: flex;
+  align-items: center;
+}
 
-    .search-bar input {
-      padding: 8px 40px 8px 10px; /* Space for the search icon on the right */
-      border: 1px solid #ddd;
-      border-radius: 20px; /* Curved edges */
-      font-size: 14px;
-      width: 200px; /* Width of the search bar */
-      box-sizing: border-box;
-    }
+.search-bar input {
+  width: 150%;
+  padding: 8px 35px 8px 10px; /* Add right padding for the icon */
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
 
-    .search-bar .search-icon {
-      position: absolute;
-      right: 10px; /* Position the icon at the max right */
-      width: 16px; /* Icon size */
-      height: 16px;
-    }
+.search-bar .search-icon {
+  position: absolute;
+  right: 10px; /* Position the icon at the far right */
+  width: 20px; /* Adjust icon size */
+  height: 20px;
+  pointer-events: none; /* Prevent icon from interfering with input clicks */
+}
 
     .contact-info {
       display: flex;
@@ -75,7 +77,6 @@
       text-decoration: underline;
     }
 
-    /* Blue navbar line underneath */
     /* Blue navbar line underneath */
     .blue-navbar {
       background: #00aae8; /* Blue background */
@@ -278,7 +279,6 @@
     <a href="#">Technical &#x25BE;</a> <span class="separator">|</span>
     <a href="#">Help &#x25BE;</a>
   </nav>
-
 </div>
 
 <main>
@@ -291,7 +291,7 @@
         <span class="dropdown-arrow" onclick="toggleDropdown(this)">▼</span>
       </div>
       <div class="dropdown-menu">
-        <a href="#">
+        <a href="create-single.html">
           Create Single..
         </a>
         <a href="#">
@@ -326,7 +326,7 @@
       <div class="box-label">Students<span class="dropdown-arrow" onclick="toggleDropdown(this)">▼</span>
       </div>
       <div class="dropdown-menu">
-        <a href="#">
+        <a href="create-single.html">
           Create Single..
         </a>
         <a href="#">
