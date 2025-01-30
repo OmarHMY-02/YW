@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Students - Create Single</title>
   <style>
     body {
@@ -42,37 +41,26 @@
     }
 
     .search-bar {
-  position: relative;
-  display: flex;
-  align-items: center;
-}
-
-.search-bar input {
-  width: 150%;
-  padding: 8px 35px 8px 10px; /* Add right padding for the icon */
-  border: 1px solid #ddd;
-  border-radius: 20px;
-  font-size: 14px;
-  box-sizing: border-box;
-}
-
-.search-bar .search-icon {
-  position: absolute;
-  right: 10px; /* Position the icon at the far right */
-  width: 20px; /* Adjust icon size */
-  height: 20px;
-  pointer-events: none; /* Prevent icon from interfering with input clicks */
-}
-
-
-    header .logo {
+      position: relative;
       display: flex;
       align-items: center;
     }
 
-    header .logo img {
-      width: 40px;
-      margin-right: 10px;
+    .search-bar input {
+      width: 150%;
+      padding: 8px 35px 8px 10px; /* Add right padding for the icon */
+      border: 1px solid #ddd;
+      border-radius: 20px;
+      font-size: 14px;
+      box-sizing: border-box;
+    }
+
+    .search-bar .search-icon {
+      position: absolute;
+      right: 10px; /* Position the icon at the far right */
+      width: 20px; /* Adjust icon size */
+      height: 20px;
+      pointer-events: none; /* Prevent icon from interfering with input clicks */
     }
 
     header nav {
@@ -108,7 +96,6 @@
     }
 
     /* Navbar styles */
-    /* Blue navbar line underneath */
     .blue-navbar {
       background: #00aae8; /* Blue background */
       height: 28px; /* Set fixed height for the navbar */
@@ -116,7 +103,6 @@
       align-items: center; /* Vertically align content */
       padding: 0 20px; /* Horizontal padding only */
     }
-
 
     .blue-navbar nav {
       display: flex;
@@ -135,9 +121,9 @@
     }
 
     .separator {
-    color: white; /* Set the separator color to white */
-    margin: 0 5px; /* Add spacing around the separator */
-  }
+      color: white; /* Set the separator color to white */
+      margin: 0 5px; /* Add spacing around the separator */
+    }
 
     main {
       flex: 1;
@@ -147,9 +133,9 @@
     .toolbar {
       display: flex;
       align-items: center;
-      gap: 20px;
+      gap: 15px;
       padding: 10px 0;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
       border-bottom: 1px solid #ddd;
     }
 
@@ -158,7 +144,7 @@
       align-items: center;
       gap: 8px;
       text-decoration: none;
-      font-size: 14px;
+      font-size: 13px;
       color: #333;
       padding: 5px 10px;
       border-radius: 5px;
@@ -179,48 +165,56 @@
     }
 
     .form-container {
-  background: #f9f9f9;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  padding: 10px; /* Reduced padding */
-  max-width: 600px; /* Slightly narrower form */
-  margin: 10px; /* Centered form */
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-}
+      background: #f9f9f9;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      padding: 10px; /* Reduced padding */
+      max-width: 600px; /* Slightly narrower form */
+      margin: 10px;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
 
-.form-row {
-  display: flex;
-  align-items: center;
-  margin-bottom: 10px; /* Reduced spacing */
-}
+    .form-row {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px; /* Reduced spacing */
+    }
 
-.form-row label {
-  flex: 0 0 100px; /* Adjust label width */
-  font-size: 12px; /* Smaller font size */
-}
+    .form-row label {
+      flex: 0 0 100px; /* Adjust label width */
+      font-size: 12px; /* Smaller font size */
+    }
 
-.form-row input,
-.form-row select {
-  flex: 1;
-  padding: 5px; /* Smaller padding */
-  font-size: 12px; /* Smaller font size */
-}
+    .form-row input,
+    .form-row select {
+      flex: 1;
+      padding: 3px; /* Smaller padding */
+      font-size: 12px; /* Smaller font size */
+    }
 
+    /* Hide radio from taking extra space */
     .form-row input[type="radio"] {
       flex: 0;
       margin-right: 5px;
     }
 
-    .form-buttons {
-  display: flex;
-  gap: 10px;
-  margin: 10px;
-}
+    /* Overriding label width in checkbox row */
+    .form-row.checkbox-row label {
+      flex: 0 0 auto;
+      margin-right: 5px;
+      width: auto;
+    }
 
-.form-buttons button {
-  padding: 8px 15px;
-  font-size: 12px;
-}
+    .form-buttons {
+      display: flex;
+      gap: 10px;
+      margin: 15px;
+    }
+
+    .form-buttons button {
+      padding: 8px 15px;
+      font-size: 12px;
+    }
 
     .form-buttons .btn-primary {
       background: #007BFF;
@@ -232,58 +226,65 @@
       color: white;
     }
 
+    .button-container {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .tab-button {
+      background: #f9f9f9;
+      border: 1px solid #ddd;
+      padding: 8px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 12px;
+    }
+
+    .tab-button.active {
+      background: #007BFF;
+      color: white;
+      border-color: #007BFF;
+    }
+
+    .tab-button:hover {
+      background: #0056b3;
+      color: white;
+    }
+
     .dropdown-container {
-  position: relative;
-  display: flex;
-  align-items: center;
-}
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
 
-.dropdown-container input {
-  flex: 1;
-  padding: 5px; /* Reduced padding */
-  font-size: 12px;
-  border: 1px solid #ddd;
-  border-radius: 5px 0 0 5px;
-  box-sizing: border-box;
-}
+    .dropdown-container input {
+      flex: 1;
+      padding: 5px;
+      font-size: 12px;
+      border: 1px solid #ddd;
+      border-radius: 5px 0 0 5px;
+      box-sizing: border-box;
+    }
 
-.dropdown-container select {
-  background: white;
+    .dropdown-container select {
+  width: 30px;           /* or something comfortable for the OS arrow */
   border: 1px solid #ddd;
   border-left: none;
   border-radius: 0 5px 5px 0;
-  padding: 5px;
   font-size: 12px;
-  height: 100%;
-  box-sizing: border-box;
-}
-
-.button-container {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 10px;
-}
-
-.tab-button {
-  background: #f9f9f9;
-  border: 1px solid #ddd;
-  padding: 8px 15px;
-  border-radius: 5px;
   cursor: pointer;
-  font-size: 12px;
+
+  /* "Push" the text out of view while hopefully preserving the arrow */
+  text-indent: 9999px;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
-.tab-button.active {
-  background: #007BFF;
-  color: white;
-  border-color: #007BFF;
-}
-
-.tab-button:hover {
-  background: #0056b3;
-  color: white;
-}
-
+    .dropdown-container select option {
+      color: #000; 
+      text-shadow: none;  /* Ensure these show normally in the dropdown list */
+    }
   </style>
 </head>
 <body>
@@ -332,6 +333,7 @@
     <a href="#"><img src="icon.png" alt="Browse"> Browse</a>
     <a href="#"><img src="icon.png" alt="List All"> List All</a>
     <a href="#"><img src="icon.png" alt="Reports"> Reports</a>
+    <a href="#"><img src="icon.png" alt="Update"> Update</a>
     <a href="#"><img src="icon.png" alt="Recycle Bin"> Recycle Bin</a>
     <a href="#"><img src="icon.png" alt="Archive"> Archive</a>
   </div>
@@ -370,7 +372,7 @@
         <div class="dropdown-container">
           <input type="text" id="country" placeholder="Type a country">
           <select id="country-select" onchange="setInputValue('country', this)">
-            <option value="" disabled selected>Choose a country</option>
+            <option value="" disabled selected></option>
             <option value="United States">United States</option>
             <option value="Canada">Canada</option>
             <option value="United Kingdom">United Kingdom</option>
@@ -380,13 +382,12 @@
           </select>
         </div>
       </div>
-      
       <div class="form-row">
         <label for="city">City<span style="color: red;">*</span>:</label>
         <div class="dropdown-container">
           <input type="text" id="city" placeholder="Type a city">
           <select id="city-select" onchange="setInputValue('city', this)">
-            <option value="" disabled selected>Choose a city</option>
+            <option value="" disabled selected></option>
             <option value="New York">New York</option>
             <option value="Los Angeles">Los Angeles</option>
             <option value="Chicago">Chicago</option>
@@ -401,25 +402,24 @@
         <input type="radio" id="male" name="gender" value="Male"> Male
         <input type="radio" id="female" name="gender" value="Female"> Female
       </div>
-
-      <div class="form-row">
+      <!-- Overriding the default 'form-row' label width here -->
+      <div class="label">
         <label for="received-email">Received Email?</label>
         <input type="checkbox" id="received-email">
-</div>
-
+      </div>
       <div class="form-buttons">
         <button type="submit" class="btn-primary">Create</button>
         <button type="button" class="btn-secondary">Read from Attachment</button>
       </div>
-      
     </form>
   </div>
 </main>
+
 <script>
-function setInputValue(inputId, selectElement) {
-  const inputField = document.getElementById(inputId);
-  inputField.value = selectElement.value;
-}
+  function setInputValue(inputId, selectElement) {
+    const inputField = document.getElementById(inputId);
+    inputField.value = selectElement.value;
+  }
 </script>
 </body>
 </html>
