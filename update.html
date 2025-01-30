@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Students - Create Single</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* Header styles */
+    header {
+      background: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .logo-and-search {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex: 1;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+    .logo img {
+      width: 40px;
+      margin-right: 10px;
+    }
+    .search-bar {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+    .search-bar input {
+      width: 150%;
+      padding: 8px 35px 8px 10px;
+      border: 1px solid #ddd;
+      border-radius: 20px;
+      font-size: 14px;
+      box-sizing: border-box;
+    }
+    .search-bar .search-icon {
+      position: absolute;
+      right: 10px;
+      width: 20px;
+      height: 20px;
+      pointer-events: none;
+    }
+
+    header nav {
+      display: flex;
+      gap: 15px;
+    }
+    header nav a {
+      color: #333;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    header nav a:hover {
+      text-decoration: underline;
+    }
+
+    .contact-info {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      font-size: 14px;
+    }
+    .contact-info a {
+      color: #007BFF;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .contact-info a:hover {
+      text-decoration: underline;
+    }
+
+    /* Navbar styles */
+    .blue-navbar {
+      background: #00aae8;
+      height: 28px;
+      display: flex;
+      align-items: center;
+      padding: 0 20px;
+    }
+    .blue-navbar nav {
+      display: flex;
+      gap: 15px;
+    }
+    .blue-navbar nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: bold;
+    }
+    .blue-navbar nav a:hover {
+      text-decoration: underline;
+    }
+    .separator {
+      color: white;
+      margin: 0 5px;
+    }
+
+    main {
+      flex: 1;
+      padding: 20px;
+    }
+
+    .toolbar {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      padding: 10px 0;
+      margin-bottom: 18px;
+      border-bottom: 1px solid #ddd;
+    }
+    .toolbar a {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      font-size: 13px;
+      color: #333;
+      padding: 5px 10px;
+      border-radius: 5px;
+    }
+    .toolbar a:hover {
+      background: #f0f0f0;
+    }
+    .toolbar a.active {
+      color: #007BFF;
+      border-bottom: 2px solid #007BFF;
+    }
+    .toolbar img {
+      width: 16px;
+      height: 16px;
+    }
+
+    /* The overall page content container, centered */
+    .page-content {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start; /* top-align both boxes */
+      max-width: 1500px; /* control total width */
+      margin: 0 auto;    /* center the flex container horizontally */
+    }
+
+    /* Make the form bigger */
+    .form-container {
+      flex: 0 0 520px;     /* fixed width of 700px */
+      background: #f9f9f9;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      padding: 10px;
+      margin: 10px 0;
+      box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
+    }
+
+    .button-container {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .tab-button {
+      background: #f9f9f9;
+      border: 1px solid #ddd;
+      padding: 8px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 12px;
+    }
+    .tab-button.active {
+      background: #007BFF;
+      color: white;
+      border-color: #007BFF;
+    }
+    .tab-button:hover {
+      background: #0056b3;
+      color: white;
+    }
+
+    .form-row {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    .form-row label {
+      flex: 0 0 100px;
+      font-size: 12px;
+    }
+    .form-row input,
+    .form-row select {
+      flex: 1;
+      padding: 3px;
+      font-size: 12px;
+    }
+    .form-row input[type="radio"] {
+      flex: 0;
+      margin-right: 5px;
+    }
+    .label {
+      margin-top: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .form-buttons {
+      display: flex;
+      gap: 10px;
+      margin: 15px;
+    }
+    .form-buttons button {
+      padding: 8px 15px;
+      font-size: 12px;
+    }
+    .form-buttons .btn-primary {
+      background: #007BFF;
+      color: white;
+    }
+    .form-buttons .btn-secondary {
+      background: #6c757d;
+      color: white;
+    }
+
+    .dropdown-container {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+    .dropdown-container input {
+      flex: 1;
+      padding: 5px;
+      font-size: 12px;
+      border: 1px solid #ddd;
+      border-radius: 5px 0 0 5px;
+      box-sizing: border-box;
+    }
+    .dropdown-container select {
+      width: 30px;
+      border: 1px solid #ddd;
+      border-left: none;
+      border-radius: 0 5px 5px 0;
+      font-size: 12px;
+      cursor: pointer;
+      text-indent: 9999px; /* hide the text of the select */
+      white-space: nowrap;
+      overflow: hidden;
+    }
+    .dropdown-container select option {
+      color: #000;
+    }
+
+    /* Right table container, also a box but narrower to appear "slightly to the right" */
+    .actions-container {
+      flex: 0 0 500px; /* narrower width => it appears to the right */
+      background: #f9f9f9;
+      border: 2px solid #ddd;
+      border-radius: 5px;
+      padding: 10px;
+      margin: 10px 0px 123px 180px;
+      box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
+    }
+    .actions-container .tabs {
+      margin-bottom: 30px;
+    }
+    .actions-container .tab-button {
+      background: #f9f9f9;
+      border: 1px solid #ddd;
+      padding: 8px 12px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 12px;
+      margin-right: 5px;
+    }
+    .actions-container .tab-button.active {
+      background: #007BFF;
+      color: white;
+      border-color: #007BFF;
+    }
+
+    .records-line {
+      display: inline-flex;
+      gap: 75px;
+      font-size: 12px;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .actions-container table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 0;
+    }
+    .actions-container table th,
+    .actions-container table td {
+      border: 1px solid #ccc;
+      padding: 6px;
+      font-size: 12px;
+    }
+    .pagination {
+      margin-top: 10px;
+    }
+    .pagination button {
+      margin-right: 4px;
+      font-size: 12px;
+      padding: 4px 8px;
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="logo-and-search">
+    <div class="logo">
+      <img src="YW%20logo.jpg" alt="YouWork Logo">
+      <h1>YOUWORK.COM</h1>
+    </div>
+    <div class="search-bar">
+      <input type="text" placeholder="Search...">
+      <img src="icon.png" alt="Search" class="search-icon">
+    </div>
+  </div>
+  <div class="contact-info">
+    <span>info@YouWork.com</span> |
+    <span>+971 800 5555</span> |
+    <span>+971 52 555 5555</span> |
+    <a href="#">Live Chat</a> |
+    <a href="#">Send us a message</a>
+  </div>
+</header>
+
+<div class="blue-navbar">
+  <nav>
+    <a href="#">Module 1 &#x25BE;</a> <span class="separator">|</span>
+    <a href="#">Module 2 &#x25BE;</a> <span class="separator">|</span>
+    <a href="#">Module 3 &#x25BE;</a> <span class="separator">|</span>
+    <a href="#">Master Data &#x25BE;</a> <span class="separator">|</span>
+    <a href="#">Reports &#x25BE;</a> <span class="separator">|</span>
+    <a href="#">User Management &#x25BE;</a> <span class="separator">|</span>
+    <a href="#">Admin &#x25BE;</a> <span class="separator">|</span>
+    <a href="#">Technical &#x25BE;</a> <span class="separator">|</span>
+    <a href="#">Help &#x25BE;</a>
+  </nav>
+</div>
+
+<main>
+  <h2>Students - Create Single</h2>
+  <div class="toolbar">
+    <a href="#"><img src="icon.png" alt="Create Single"> Create Single</a>
+    <a href="#"><img src="icon.png" alt="Create Multiple"> Create Multiple</a>
+    <a href="#"><img src="icon.png" alt="Import"> Import</a>
+    <a href="#"><img src="icon.png" alt="Search"> Search</a>
+    <a href="#"><img src="icon.png" alt="Advanced Search"> Advanced Search</a>
+    <a href="#"><img src="icon.png" alt="Saved Search"> Saved Search</a>
+    <a href="#"><img src="icon.png" alt="Browse"> Browse</a>
+    <a href="#"><img src="icon.png" alt="List All"> List All</a>
+    <a href="#"><img src="icon.png" alt="Reports"> Reports</a>
+    <a href="#" class="active"><img src="icon.png" alt="Update"> Update</a>
+    <a href="#"><img src="icon.png" alt="Recycle Bin"> Recycle Bin</a>
+    <a href="#"><img src="icon.png" alt="Archive"> Archive</a>
+  </div>
+  
+  <div class="page-content">
+    <!-- Left Form (larger) -->
+    <div class="form-container">
+      <div class="button-container">
+        <button class="tab-button active">Basic Details</button>
+        <button class="tab-button">Other Details</button>
+      </div>
+      <form>
+        <div class="form-row">
+          <label for="first-name">First Name<span style="color: red;">*</span>:</label>
+          <input type="text" id="first-name" placeholder="Enter first name">
+        </div>
+        <div class="form-row">
+          <label for="last-name">Last Name<span style="color: red;">*</span>:</label>
+          <input type="text" id="last-name" placeholder="Enter last name">
+        </div>
+        <div class="form-row">
+          <label for="joining-year">Joining Year<span style="color: red;">*</span>:</label>
+          <input type="text" id="joining-year" placeholder="Enter joining year">
+        </div>
+        <div class="form-row">
+          <label for="dob">Date of Birth<span style="color: red;">*</span>:</label>
+          <input type="date" id="dob">
+        </div>
+        <div class="form-row">
+          <label for="photo">Photo<span style="color: red;">*</span>:</label>
+          <input type="file" id="photo">
+        </div>
+        <div class="form-row">
+          <label for="nationality">Nationality<span style="color: red;">*</span>:</label>
+          <input type="text" id="nat" placeholder="Enter your Nationality">
+        </div>
+        <div class="form-row">
+          <label for="country">Country<span style="color: red;">*</span>:</label>
+          <div class="dropdown-container">
+            <input type="text" id="country" placeholder="Type a country">
+            <select id="country-select" onchange="setInputValue('country', this)">
+              <option value="" disabled selected></option>
+              <option value="United States">United States</option>
+              <option value="Canada">Canada</option>
+              <option value="United Kingdom">United Kingdom</option>
+              <option value="Australia">Australia</option>
+              <option value="Germany">Germany</option>
+              <option value="France">France</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <label for="city">City<span style="color: red;">*</span>:</label>
+          <div class="dropdown-container">
+            <input type="text" id="city" placeholder="Type a city">
+            <select id="city-select" onchange="setInputValue('city', this)">
+              <option value="" disabled selected></option>
+              <option value="New York">New York</option>
+              <option value="Los Angeles">Los Angeles</option>
+              <option value="Chicago">Chicago</option>
+              <option value="Houston">Houston</option>
+              <option value="Phoenix">Phoenix</option>
+              <option value="Toronto">Toronto</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <label for="gender">Gender:</label>
+          <input type="radio" id="male" name="gender" value="Male"> Male
+          <input type="radio" id="female" name="gender" value="Female"> Female
+        </div>
+        <div class="label">
+          <label for="received-email">Received Email?</label>
+          <input type="checkbox" id="received-email">
+        </div>
+        <div class="form-buttons">
+          <button type="submit" class="btn-primary">Create</button>
+          <button type="button" class="btn-secondary">Read from Attachment</button>
+        </div>
+      </form>
+    </div>
+    
+    <!-- Right Table (narrower to appear somewhat to the right) -->
+    <div class="actions-container">
+      <div class="tabs">
+        <button class="tab-button active">Actions History</button>
+        <button class="tab-button">Courses</button>
+        <button class="tab-button">Certificates</button>
+      </div>
+      <div class="records-line">
+        <span>Number of Records: N</span>
+        <span>Current page: 4, out of 10 pages</span>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th></th> <!-- for checkbox column -->
+            <th>Action</th>
+            <th>By Who</th>
+            <th>Category</th>
+            <th>Date</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td><input type="checkbox" /></td>
+            <td>xxxxxxxxx</td>
+            <td>xxxxxxxxx</td>
+            <td>xxxxxxxxx</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td><input type="checkbox" /></td>
+            <td>xxxxxxxxx</td>
+            <td>xxxxxxxxx</td>
+            <td>xxxxxxxxx</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td><input type="checkbox" /></td>
+            <td>xxxxxxxxx</td>
+            <td>xxxxxxxxx</td>
+            <td>xxxxxxxxx</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td><input type="checkbox" /></td>
+            <td>xxxxxxxxx</td>
+            <td>xxxxxxxxx</td>
+            <td>xxxxxxxxx</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td><input type="checkbox" /></td>
+            <td>xxxxxxxxx</td>
+            <td>xxxxxxxxx</td>
+            <td>xxxxxxxxx</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>..</td>
+            <td><input type="checkbox" /></td>
+            <td>xxxxxxxxx</td>
+            <td>xxxxxxxxx</td>
+            <td>xxxxxxxxx</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>N</td>
+            <td><input type="checkbox" /></td>
+            <td>xxxxxxxxx</td>
+            <td>xxxxxxxxx</td>
+            <td>xxxxxxxxx</td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="pagination">
+        <button>Delete</button>
+        <button>&laquo;</button>
+        <button>&lsaquo;</button>
+        <button>&rsaquo;</button>
+        <button>&raquo;</button>
+        <span>Go to page:</span>
+        <input type="text" size="2">
+        <button>Go</button>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script>
+  function setInputValue(inputId, selectElement) {
+    const inputField = document.getElementById(inputId);
+    inputField.value = selectElement.value;
+  }
+</script>
+</body>
+</html>
