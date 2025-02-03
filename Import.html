@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Import</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* Header styles (unchanged) */
+    header {
+      background: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px;
+      border-bottom: 1px solid #ddd;
+    }
+    .logo-and-search {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex: 1;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+    .logo img {
+      width: 40px;
+      margin-right: 10px;
+    }
+    .search-bar {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+    .search-bar input {
+      width: 150%;
+      padding: 8px 35px 8px 10px;
+      border: 1px solid #ddd;
+      border-radius: 20px;
+      font-size: 14px;
+      box-sizing: border-box;
+    }
+    .search-bar .search-icon {
+      position: absolute;
+      right: 10px;
+      width: 20px;
+      height: 20px;
+      pointer-events: none;
+    }
+    header nav {
+      display: flex;
+      gap: 15px;
+    }
+    header nav a {
+      color: #333;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    header nav a:hover {
+      text-decoration: underline;
+    }
+    .contact-info {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      font-size: 14px;
+    }
+    .contact-info a {
+      color: #007BFF;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .contact-info a:hover {
+      text-decoration: underline;
+    }
+
+    /* Navbar styles (unchanged) */
+    .blue-navbar {
+      background: #00aae8;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      padding: 0 30px;
+    }
+    .blue-navbar nav {
+      display: flex;
+      gap: 15px;
+    }
+    .blue-navbar nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: bold;
+    }
+    .blue-navbar nav a:hover {
+      text-decoration: underline;
+    }
+    .separator {
+      color: white;
+      margin: 0 5px;
+    }
+
+    /* Main content area */
+    main {
+      flex: 1;
+      padding: 20px;
+    }
+
+    /* Toolbar styles (unchanged) */
+    .toolbar {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      padding: 10px 0;
+      margin-bottom: 18px;
+      border-bottom: 1px solid #ddd;
+    }
+    .toolbar a {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      font-size: 13px;
+      color: #333;
+      padding: 5px 10px;
+      border-radius: 5px;
+    }
+    .toolbar a:hover {
+      background: #f0f0f0;
+    }
+    .toolbar a.active {
+      color: #007BFF;
+      border-bottom: 2px solid #007BFF;
+    }
+    .toolbar img {
+      width: 16px;
+      height: 16px;
+    }
+
+    /* NEW: Styles for the "Import" field, icon on the right, and Upload button */
+    .import-section {
+      margin-top: 20px;
+    }
+
+    .import-section label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+      font-size: 15px;
+    }
+
+    /* Container for input and paperclip icon side-by-side */
+    .import-field {
+      display: flex;
+      align-items: center;
+      width: 300px;
+      margin-bottom: 10px; /* space before Upload button */
+    }
+
+    /* This text field just displays the selected file name (read-only if you like) */
+    .import-field input[type="text"] {
+      flex: 1; /* make the input take up remaining space */
+      padding: 8px 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      box-sizing: border-box;
+      font-size: 14px;
+      margin-right: 5px; /* space between input and icon */
+    }
+
+    /* We'll hide a file input to actually open the file dialog */
+    #file-upload {
+      display: none;
+    }
+
+    .paperclip-icon {
+      width: 24px;
+      height: 24px;
+      cursor: pointer; /* so user sees it's clickable if desired */
+    }
+
+    .upload-button {
+      padding: 8px 16px;
+      background-color: grey;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 13px;
+    }
+    .upload-button:hover {
+      background-color: #0056b3;
+    }
+
+  </style>
+</head>
+<body>
+<header>
+  <div class="logo-and-search">
+    <div class="logo">
+      <img src="YW%20logo.jpg" alt="YouWork Logo">
+      <h1>YOUWORK.COM</h1>
+    </div>
+    <div class="search-bar">
+      <input type="text" placeholder="Search...">
+      <img src="icon.png" alt="Search" class="search-icon">
+    </div>
+  </div>
+  <div class="contact-info">
+    <span>info@YouWork.com</span> |
+    <span>+971 800 5555</span> |
+    <span>+971 52 555 5555</span> |
+    <a href="#">Live Chat</a> |
+    <a href="#">Send us a message</a>
+  </div>
+</header>
+
+<div class="blue-navbar">
+  <nav>
+    <a href="#">Module 1 &#x25BE;</a> <span class="separator">|</span>
+    <a href="#">Module 2 &#x25BE;</a> <span class="separator">|</span>
+    <a href="#">Module 3 &#x25BE;</a> <span class="separator">|</span>
+    <a href="#">Master Data &#x25BE;</a> <span class="separator">|</span>
+    <a href="#">Reports &#x25BE;</a> <span class="separator">|</span>
+    <a href="#">User Management &#x25BE;</a> <span class="separator">|</span>
+    <a href="#">Admin &#x25BE;</a> <span class="separator">|</span>
+    <a href="#">Technical &#x25BE;</a> <span class="separator">|</span>
+    <a href="#">Help &#x25BE;</a>
+  </nav>
+</div>
+
+<main>
+  <h2>Students</h2>
+  <div class="toolbar">
+    <a href="#"><img src="icon.png" alt="Create Single"> Create Single</a>
+    <a href="#"><img src="icon.png" alt="Create Multiple"> Create Multiple</a>
+    <a href="#" class="active"><img src="icon.png" alt="Import"> Import</a>
+    <a href="#"><img src="icon.png" alt="Search"> Search</a>
+    <a href="#"><img src="icon.png" alt="Advanced Search"> Advanced Search</a>
+    <a href="#"><img src="icon.png" alt="Saved Search"> Saved Search</a>
+    <a href="#"><img src="icon.png" alt="Browse"> Browse</a>
+    <a href="#"><img src="icon.png" alt="List All"> List All</a>
+    <a href="#"><img src="icon.png" alt="Reports"> Reports</a>
+    <a href="update.html"><img src="icon.png" alt="Update"> Update</a>
+    <a href="#"><img src="icon.png" alt="Recycle Bin"> Recycle Bin</a>
+    <a href="#"><img src="icon.png" alt="Archive"> Archive</a>
+  </div>
+
+  <!-- "Import" field with icon on the right and a hidden file input -->
+  <div class="import-section">
+    <label for="import-input">Import</label>
+    <div class="import-field">
+      <!-- Displays the selected file name -->
+      <input type="text" id="import-input" placeholder="No file selected" readonly>
+
+      <!-- Hidden file input: triggers file browser -->
+      <!-- Accept images; change to accept="*/*" to allow any file type -->
+      <input type="file" id="file-upload" accept="image/*">
+
+      <!-- Paperclip icon that triggers hidden file input -->
+      <img src="icon.png" alt="Attach" class="paperclip-icon" id="paperclip-icon">
+    </div>
+    <button class="upload-button" id="upload-button">Upload</button>
+  </div>
+  
+</main>
+
+<script>
+  const paperclipIcon = document.getElementById('paperclip-icon');
+  const fileUpload = document.getElementById('file-upload');
+  const importInput = document.getElementById('import-input');
+  const uploadButton = document.getElementById('upload-button');
+
+  // Clicking the paperclip opens the file dialog
+  paperclipIcon.addEventListener('click', () => {
+    fileUpload.click();
+  });
+
+  // Show chosen file name in the text field
+  fileUpload.addEventListener('change', () => {
+    if (fileUpload.files.length > 0) {
+      importInput.value = fileUpload.files[0].name;
+    } else {
+      importInput.value = 'No file selected';
+    }
+  });
+
+  // "Upload" button - add your own upload logic here
+  uploadButton.addEventListener('click', () => {
+    if (fileUpload.files.length > 0) {
+      const chosenFile = fileUpload.files[0];
+      // For demonstration, just alert the file name
+      alert("File chosen: " + chosenFile.name);
+      // TODO: Implement your actual file upload logic (e.g., AJAX call)
+    } else {
+      alert("No file selected.");
+    }
+  });
+</script>
+</body>
+</html>
